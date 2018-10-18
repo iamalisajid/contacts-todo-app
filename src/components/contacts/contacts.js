@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const contacts = (props) => {
+const Contacts = (props) => {
     return (
-
+        <h1>Contacts</h1>
     );
 }
 
-contacts.propTypes = {}
+//Contacts.propTypes = {}
 
-export default contacts
+export default Contacts;

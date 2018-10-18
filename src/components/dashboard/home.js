@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from "react-router-dom";
 
-const home = (props) => {
+const Home = (props) => {
     return (
-
+        <div className="App">
+            <h1>Dashboard</h1>
+            <p>Welcome User</p>
+            <Link to="/contacts"  className="btn btn-primary">Contacts</Link>
+            <Link to="/todos" className="btn btn-danger">Todos</Link>
+        </div>
     );
 }
 
-home.propTypes = {}
+//Home.propTypes = {}
 
-export default home
+export default Home;

@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const todos = (props) => {
+const Todos = (props) => {
     return (
-
+        <div>
+            <h1>Todos</h1>
+        </div>
     );
 }
 
-todos.propTypes = {}
+//Todos.propTypes = {}
 
-export default todos
+export default Todos
