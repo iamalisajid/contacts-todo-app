@@ -8,43 +8,45 @@ import PasswordInput from "../common/PasswordInput";
 class Register extends Component {
     render() {
         return (
-            <div>
-                <div className="col-md-6 col-md-offset-3">
-                    <h2>Register</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <TextInput
-                                name="firstname"
-                                label="First Name"
+            <div className="jumbotron">
+                <div className="container">
+                    <div className="col-md-6 col-md-offset-3">
+                        <h2>Register</h2>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <TextInput
+                                    name="firstname"
+                                    label="First Name"
 
-                            />
-                        </div>
-                        <div className="form-group">
-                            <TextInput
-                                name="lastname"
-                                label="Last Name"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <TextInput
-                                name="username"
-                                label="User Name"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <PasswordInput
-                                name="password"
-                                label="Password"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <input
-                                value="Register"
-                                type="submit"
-                                className="btn btn-primary"/>
-                            <Link to="/login" className="btn btn-link">Cancel</Link>
-                        </div>
-                    </form>
+                                />
+                            </div>
+                            <div className="form-group">
+                                <TextInput
+                                    name="lastname"
+                                    label="Last Name"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <TextInput
+                                    name="username"
+                                    label="User Name"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <PasswordInput
+                                    name="password"
+                                    label="Password"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    value="Register"
+                                    type="submit"
+                                    className="btn btn-primary"/>
+                                <Link to="/login" className="btn btn-link">Cancel</Link>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         );
