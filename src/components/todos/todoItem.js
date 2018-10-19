@@ -1,16 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TodoItem = (props) => {
+const TodoItem = ({ key, name }) => {
     return (
         <li className="ui-state-default">
             <div className="checkbox">
                 <label>
                     <input type="checkbox" value=""/>
-                    Take out the trash
+                    {name}
                 </label>
             </div>
         </li>
     );
+}
+
+TodoItem.propTypes = {
+    key: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+
 }
 export default TodoItem

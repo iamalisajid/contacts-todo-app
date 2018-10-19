@@ -1,13 +1,30 @@
-import React from 'react'
-import TodoItem from "./todoItem";
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import TodoItem from "./TodoItem";
 import './todos.css';
+import {fetchTodos} from '../../actions/todosActions'
 
-const TodosList = (props) => {
-    return (
+class TodosList extends Component {
+    componentDidMount(){
+        this.props.fetchTodos();
+    }
+    render() {
+        debugger;
+        if(!this.props.todos)
+            return (<p>Loading...</p>)
+        return (
             <ul id="sortable" className="list-unstyled">
-               <TodoItem/>
+                {this.props.todos.todos.map(todos =>
+                    <TodoItem name={todos.name} key={todos.id}/>)
+                }
             </ul>
-    );
+        );
+    }
 }
-
-export default TodosList
+const mapStateToProps = (store) => {
+    console.log(store);
+    return {
+        todos: store.todos
+    }
+}
+export default connect(mapStateToProps, { fetchTodos })(TodosList)

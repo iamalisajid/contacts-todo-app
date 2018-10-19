@@ -1,8 +1,8 @@
 import React from 'react'
 import './todos.css';
-import TodosForm from "./todoForm";
-import TodosList from "./todoList";
-import TodoFooter from "./todoFooter";
+import TodosForm from "./TodoForm";
+import TodosList from "./TodoList";
+import TodoFooter from "./TodoFooter";
 
 const Todos = (props) => {
     return (
