@@ -40,3 +40,12 @@ li.ui-state-default:last-child{
 #checkAll{
     margin-top:10px;
 }
+input[type=checkbox], input[type=radio] {
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+}
+
+input[type=radio] {
+    bottom: 2px;
+}

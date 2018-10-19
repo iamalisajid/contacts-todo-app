@@ -9,9 +9,7 @@ class TodosList extends Component {
         this.props.fetchTodos();
     }
     render() {
-        debugger;
-        if(!this.props.todos)
-            return (<p>Loading...</p>)
+        console.log(this.props);
         return (
             <ul id="sortable" className="list-unstyled">
                 {this.props.todos.todos.map(todos =>

@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { updateField, saveTodo } from '../../actions/todosActions';
 
-const TodosForm = (props) => {
-    return (
-        <form>
-            <input type="text" className="form-control add-todo" placeholder="Add todo"/>
-            <br></br>
-            <button type="submit" className="btn btn-success">Mark All As Done</button>
-            <hr></hr>
-        </form>
-    );
+class TodosForm extends Component{
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.saveTodo(this.props.currentTodo);
+    };
+
+    handleInputChange =(event) => {
+        this.props.updateField(event.target.value);
+    };
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input type="text"
+                       onChange={this.handleInputChange}
+                       className="form-control add-todo"
+                       value ={this.props.currentTodo}
+                       placeholder="Add todo"/>
+                <br/>
+                <input type="submit" className="btn btn-success" value ="Submit"/>
+                <hr/>
+            </form>
+        );
+    }
+}
+const mapStateToProps = (store) => {
+    return {
+        currentTodo: store.todos.currentTodo
+    }
 }
 
-export default TodosForm
+export default connect(mapStateToProps,{updateField, saveTodo})(TodosForm);

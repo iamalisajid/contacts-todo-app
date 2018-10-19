@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TodoItem = ({ key, name }) => {
+const TodoItem = ({ id, name }) => {
     return (
         <li className="ui-state-default">
             <div className="checkbox">
@@ -15,7 +15,7 @@ const TodoItem = ({ key, name }) => {
 }
 
 TodoItem.propTypes = {
-    key: PropTypes.string.isRequired,
+    id: PropTypes.number,
     name: PropTypes.string.isRequired
 
 }
