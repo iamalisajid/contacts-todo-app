@@ -1,12 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import AddContacts from "./addContacts";
+import ContactsList from "./listCotacts";
 
-const contacts = (props) => {
+const Contacts = (props) => {
     return (
-
+        <div>
+            <div className="jumbotron container-fluid">
+                <div style={"clear:both;"}>
+                    <h3>Contacts</h3>
+                </div>
+            </div>
+            <AddContacts/>
+            <ContactsList/>
+        </div>
     );
 }
 
-contacts.propTypes = {}
+//Contacts.propTypes = {}
 
-export default contacts
+export default Contacts;

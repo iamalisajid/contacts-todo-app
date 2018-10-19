@@ -1,12 +1,37 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import './todos.css';
+import TodosForm from "./todoForm";
+import TodosList from "./todoList";
+import TodoFooter from "./todoFooter";
 
-const todos = (props) => {
+const Todos = (props) => {
     return (
-
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6">
+                    <div className="todolist not-done">
+                        <h1>Todos</h1>
+                        <TodosForm/>
+                        <TodosList/>
+                        <TodoFooter/>
+                    </div>
+                </div>
+                <div className="col-md-6">
+                    <div className="todolist">
+                        <h1>Already Done</h1>
+                        <ul id="done-items" className="list-unstyled">
+                            <li>Some item
+                                <button className="remove-item btn btn-default btn-xs pull-right">
+                                    <span className="glyphicon glyphicon-remove"/>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }
 
-todos.propTypes = {}
 
-export default todos
+export default Todos

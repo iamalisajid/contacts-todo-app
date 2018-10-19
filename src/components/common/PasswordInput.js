@@ -14,7 +14,8 @@ const PasswordInput = ({name, label, onChange, placeholder, value}) => {
                     className="form-control"
                     placeholder={placeholder}
                     value={value}
-                    onChange={onChange}/>
+                    onChange={onChange}
+                />
             </div>
         </div>
     );
@@ -23,7 +24,7 @@ const PasswordInput = ({name, label, onChange, placeholder, value}) => {
 PasswordInput.propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     placeholder: PropTypes.string,
     value: PropTypes.string
 };
