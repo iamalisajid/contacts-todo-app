@@ -17,6 +17,27 @@ class TodosApi {
         })
             .then(res => res.json())
     }
+
+    static updateTodo = (todo) => {
+        return fetch(`${baseUrl}/${todo.id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(todo)
+        })
+            .then(res => res.json())
+    }
+    static deleteTodo = (id) => {
+        return fetch(`${baseUrl}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+    }
 }
 
 export default TodosApi;

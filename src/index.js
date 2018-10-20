@@ -7,15 +7,26 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import ReduxToastr from 'react-redux-toastr'
 
 
 const store = createStore(rootReducer,applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <div>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+            <ReduxToastr
+                timeOut={4000}
+                newestOnTop={false}
+                preventDuplicates
+                position="top-right"
+                transitionIn="fadeIn"
+                transitionOut="fadeOut"
+                progressBar/>
+        </div>
     </Provider>
     ,document.getElementById('root'));
 

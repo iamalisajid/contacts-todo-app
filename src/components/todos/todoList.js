@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import TodoItem from "./TodoItem";
+import { PropTypes } from 'prop-types';
+import TodoItem from "./todoItem";
 import './todos.css';
-import {fetchTodos} from '../../actions/todosActions'
 
-class TodosList extends Component {
-    componentDidMount(){
-        this.props.fetchTodos();
-    }
-    render() {
-        console.log(this.props);
+const TodosList = ({ todos, toggleTodo, deleteTodo }) => {
         return (
             <ul id="sortable" className="list-unstyled">
-                {this.props.todos.todos.map(todos =>
-                    <TodoItem name={todos.name} key={todos.id}/>)
+                {todos.map(todo =>
+                    <TodoItem
+                        key={todo.id}
+                        id={todo.id}
+                        name={todo.name}
+                        isComplete={todo.isComplete}
+                        toggleTodo={toggleTodo}
+                        deleteTodo={deleteTodo}
+                    />)
                 }
             </ul>
         );
-    }
 }
-const mapStateToProps = (store) => {
-    console.log(store);
-    return {
-        todos: store.todos
-    }
+
+TodosList.propTypes = {
+    todos: PropTypes.array.isRequired,
+    toggleTodo: PropTypes.func,
+    deleteTodo: PropTypes.func
 }
-export default connect(mapStateToProps, { fetchTodos })(TodosList)
+
+export default TodosList;

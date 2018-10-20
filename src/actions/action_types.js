@@ -12,6 +12,8 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const ADD_TODO = "ADD_TODO";
 export const FETCH_TODOS = "FETCH_TODOS";
 export const CURRENT_TODO = "CURRENT_TODO";
+export const UPDATE_TODO = "UPDATE_TODO";
+export const TODO_REMOVE = "TODO_REMOVE";
 
 //CONTACTS
 export const ADD_CONTACT_REQUEST = "ADD_CONTACT_REQUEST";

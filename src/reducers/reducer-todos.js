@@ -1,15 +1,14 @@
 import * as types from '../actions/action_types'
 
-const initState = { todos: [], currentTodo: '' };
+const initState = { todos: [], currentTodo: '', activeTodos: 0 };
 
 export default function TodosReducer(state = initState, action){
-    debugger;
     switch (action.type) {
         case types.FETCH_TODOS:
             return {
                 ...state,
-                cureentTodo: '',
-                todos: action.payload
+                todos: action.payload,
+                activeTodos: action.payload.filter(t => !t.isComplete)
             };
         case types.CURRENT_TODO:
             return{
@@ -21,6 +20,18 @@ export default function TodosReducer(state = initState, action){
                 ...state,
                 currentTodo: '',
                 todos: state.todos.concat(action.payload)
+            }
+        case types.UPDATE_TODO:
+            return{
+                ...state,
+                todos: state.todos
+                    .map(todo=>todo.id === action.payload.id ? action.payload : todo)
+            }
+
+        case types.TODO_REMOVE:
+            return {
+                ...state,
+                todos: state.todos.filter(t => t.id !== action.payload)
             }
         default:
             return state

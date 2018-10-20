@@ -4,7 +4,7 @@ import Login from './components/user/login';
 import Register from './components/user/register';
 import Home from "./components/dashboard/home";
 import Contacts from "./components/contacts/contacts";
-import Todos from "./components/todos/Todos";
+import Todos from "./components/todos/todos";
 
 const Routes = () => (
     <Switch>

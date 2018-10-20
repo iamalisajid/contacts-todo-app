@@ -1,36 +1,25 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { updateField, saveTodo } from '../../actions/todosActions';
+import React from 'react'
+import { PropTypes } from 'prop-types';
 
-class TodosForm extends Component{
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.saveTodo(this.props.currentTodo);
-    };
-
-    handleInputChange =(event) => {
-        this.props.updateField(event.target.value);
-    };
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text"
-                       onChange={this.handleInputChange}
-                       className="form-control add-todo"
-                       value ={this.props.currentTodo}
-                       placeholder="Add todo"/>
-                <br/>
-                <input type="submit" className="btn btn-success" value ="Submit"/>
-                <hr/>
-            </form>
-        );
-    }
-}
-const mapStateToProps = (store) => {
-    return {
-        currentTodo: store.todos.currentTodo
-    }
+const TodosForm = ({currentTodo, handleInput, handleSubmit}) =>{
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text"
+                   onChange={handleInput}
+                   className="form-control add-todo"
+                   value ={currentTodo}
+                   placeholder="Add todo"/>
+            <br/>
+            <input type="submit" className="btn btn-success" value ="Submit"/>
+            <hr/>
+        </form>
+    );
 }
 
-export default connect(mapStateToProps,{updateField, saveTodo})(TodosForm);
+TodosForm.propTypes = {
+    currentTodo: PropTypes.string.isRequired,
+    handleInput: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
+}
+
+export default TodosForm;
